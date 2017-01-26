@@ -434,7 +434,6 @@ GetLastKeyframe(FILE * file,	// output file [in]
       //bNoHeader = TRUE; if bResume==true this is true anyway
     }
 
-  //}
 
   return RD_SUCCESS;
 }
@@ -724,6 +723,10 @@ void usage(char *prog)
 int
 main(int argc, char **argv)
 {
+    for (int i=0;i<argc;++i){
+    RTMP_Log (RTMP_LOGERROR, "%s ",argv[i]);
+    RTMP_Log (RTMP_LOGERROR, "\n");
+    }
   extern char *optarg;
 
   int nStatus = RD_SUCCESS;
@@ -783,8 +786,8 @@ main(int argc, char **argv)
 
   char *flvFile = 0;
 
-  signal(SIGINT, sigIntHandler);
-  signal(SIGTERM, sigIntHandler);
+//signal(SIGINT, sigIntHandler);
+ // signal(SIGTERM, sigIntHandler);
 #ifndef WIN32
   signal(SIGHUP, sigIntHandler);
   signal(SIGPIPE, sigIntHandler);

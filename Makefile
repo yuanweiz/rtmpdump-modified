@@ -20,7 +20,7 @@ DEF_=-DNO_CRYPTO
 CRYPTO_DEF=$(DEF_$(CRYPTO))
 
 DEF=-DRTMPDUMP_VERSION=\"$(VERSION)\" $(CRYPTO_DEF) $(XDEF)
-OPT=-O2
+OPT=-O2 -g3
 CFLAGS=-Wall $(XCFLAGS) $(INC) $(DEF) $(OPT)
 LDFLAGS=-Wall $(XLDFLAGS)
 
@@ -76,7 +76,7 @@ $(LIBRTMP): FORCE
 	@cd librtmp; $(MAKE) all
 
 rtmpdump: rtmpdump.o
-	$(CC) $(LDFLAGS) -o $@$(EXT) $@.o $(LIBS)
+	$(CC) $(LDFLAGS) -g3 -o $@$(EXT) $@.o $(LIBS)
 
 rtmpsrv: rtmpsrv.o thread.o
 	$(CC) $(LDFLAGS) -o $@$(EXT) $@.o thread.o $(SLIBS)

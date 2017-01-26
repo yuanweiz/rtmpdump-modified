@@ -7,3 +7,8 @@ rtmpdump
 rtmpgw
 rtmpsrv
 rtmpsuck
+file_lock
+*.log
+*.swp
+*.sh
+tags

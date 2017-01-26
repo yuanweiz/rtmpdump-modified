@@ -1198,8 +1198,10 @@ AMF_Decode(AMFObject *obj, const char *pBuffer, int nSize, int bDecodeName)
 
       if (bError)
 	{
-	  RTMP_Log(RTMP_LOGERROR,
-	      "DECODING ERROR, IGNORING BYTES UNTIL NEXT KNOWN PATTERN!");
+        volatile int* p = NULL;
+        *p=1;
+        //RTMP_Log(RTMP_LOGERROR,
+	     // "DECODING ERROR, IGNORING BYTES UNTIL NEXT KNOWN PATTERN!");
 	  nSize--;
 	  pBuffer++;
 	  continue;
